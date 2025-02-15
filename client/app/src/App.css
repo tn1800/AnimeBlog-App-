@@ -107,3 +107,7 @@ button {
 form h1{
   text-align: center; 
 }
+
+form.login h1, form.register h1 {
+  text-align:center; 
+}
