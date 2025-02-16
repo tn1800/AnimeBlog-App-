@@ -2,6 +2,10 @@
   box-sizing: border-box; 
 }
 
+a{
+  cursor: pointer; 
+}
+
 body {
   color: #222; 
 }
@@ -107,6 +111,7 @@ input {
 }
 
 button {
+  cursor:pointer; 
   width: 100%;
   display: block; 
   background-color: #555; 
@@ -114,10 +119,6 @@ button {
   color: #fff; 
   border-radius: 5px; 
   padding: 7px 0; 
-}
-
-form h1{
-  text-align: center; 
 }
 
 form.login h1, form.register h1 {
@@ -159,6 +160,9 @@ div.post-page div.author {
 
 div.post-page div.content p{
   line-height: 1.5rem; 
+}
+div.content li{
+  margin-bottom: 10px; 
 }
 
 div.edit-row {
