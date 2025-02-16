@@ -20,7 +20,7 @@ export default function Header() {
       method: 'POST',
     })
     setUserInfo(null); 
-  };
+  }
   const username = userInfo?.username;
   return (
     <header>
@@ -28,7 +28,7 @@ export default function Header() {
       <nav>
         {username && (
           <> 
-          <span> Welcome, {username} </span>
+          <span> Welcome, ({username}) </span>
             <Link to="/create">Create new post</Link>
             <a onClick={logout}>Logout </a>
           </>

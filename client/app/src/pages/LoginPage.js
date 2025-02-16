@@ -1,4 +1,3 @@
-
 import {useContext, useState} from "react"; 
 import {Navigate} from "react-router-dom"
 import {UserContext} from "../UserContext";
@@ -24,7 +23,7 @@ export default function LoginPage() {
         alert('wrong credentials');
       }
     }
-  
+
     if (redirect) {
       return <Navigate to={'/'} />
     }

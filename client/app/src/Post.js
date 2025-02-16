@@ -20,6 +20,6 @@ export default function Post({_id,title,summary,cover,content,createdAt,author})
         <p className = "summary"> {summary} </p>
         </div>
       </div>
-    )
+    ); 
     
 }

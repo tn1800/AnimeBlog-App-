@@ -8,7 +8,7 @@ export default function IndexPage() {
                 setPosts(posts); 
             }); 
         }); 
-    })
+    }, []);
     return (
         <>
         {posts.length > 0 && posts.map(post => (

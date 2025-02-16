@@ -4,7 +4,7 @@ export default function Editor({value, onChange}) {
     const modules = {
         toolbar: [
           [{ header: [1, 2, false] }],
-          ['italic', 'bold', 'underline', 'blockquote'],
+          ['bold', 'italic', 'underline', 'strike', 'blockquote'],
           [
             { list: 'ordered' },
             { list: 'bullet' },
@@ -15,9 +15,7 @@ export default function Editor({value, onChange}) {
           ['clean'],
         ],
       };
-    
-    
-    
+
     return (
         <div className="content">
     <ReactQuill
