@@ -67,8 +67,13 @@ app.post('/login', async (req,res) => {
 
 app.get('/profile', (req,res) => {
   const {token} = req.cookies;
+  if (!token) {
+    return res.json(null); //stop crashing
+  }
   jwt.verify(token, secret, {}, (err,info) => {
-    if (err) throw err;
+    if (err) {
+      return res.json(null); //stop app from crashing without token
+    }
     res.json(info);
   });
 });
