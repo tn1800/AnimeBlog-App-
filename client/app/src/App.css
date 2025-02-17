@@ -40,17 +40,17 @@ header a.logo {
 }
 header nav{
   display:flex; 
-  gap: 15px; 
+  gap: 20px; 
 }
 
 div.post{
   display: grid; 
   grid-template-columns: 1fr; 
-  gap: 20px; 
+  gap: 45px; 
   margin-bottom: 30px; 
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 600px) {
   div.post {
     grid-template-columns: .5fr, 1.1fr; 
 
@@ -60,7 +60,7 @@ div.post{
 div.post div.texts h2{
   margin: 0;
   text-decoration: none; 
-  font-size: 1.8em; 
+  font-size: 3.0em; 
 }
 
 div.post div.texts a{
@@ -69,7 +69,7 @@ div.post div.texts a{
 }
 
 div.post p.info {
-  margin:24px 0; 
+  margin:20px 0; 
   color: #888; 
   font-size: .7rem; 
   font-weight: bold; 
@@ -78,12 +78,12 @@ div.post p.info {
 }
 
 div.post p.info a.author{
-  color: #241c6e; 
+  color: #bab6db; 
 }
 
 div.post p.info a.rating {
   color: orange; 
-  font-size: 1.5rem; 
+  font-size: 2.5rem; 
   margin-top: -40px; 
   margin-left: 140px; 
 }
@@ -133,6 +133,7 @@ div.post-page div.image {
 div.post-page div.image img {
   object-fit: cover; 
   object-position: center center; 
+  width: 100%
 }
 div.post-page a{
   color:#333; 
@@ -175,7 +176,7 @@ div.post-page a.edit-btn {
   display: inline-flex; 
   align-items: center; 
   gap: 5px; 
-  color: #fff; 
+  color: #a9e6c7; 
   padding: 15px 30px; 
   border-radius: 5px;
   text-decoration:none; 
