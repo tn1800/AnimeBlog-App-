@@ -1,4 +1,4 @@
-import {useContext, useState} from "react"; 
+import {useContext, useState, useEffect} from "react"; 
 import {Navigate} from "react-router-dom"
 import {UserContext} from "../UserContext";
 export default function LoginPage() {
@@ -6,6 +6,14 @@ export default function LoginPage() {
     const [password,setPassword] = useState('');
     const [redirect,setRedirect] = useState(false);
     const {setUserInfo} = useContext(UserContext);
+
+    useEffect(() => {
+      if (redirect) {
+        setTimeout(() => {
+          window.location.href = '/';
+        }, 2000); 
+      }
+    }, [redirect]); 
     async function login(ev) {
       ev.preventDefault();
       const response = await fetch('http://localhost:4000/login', {
