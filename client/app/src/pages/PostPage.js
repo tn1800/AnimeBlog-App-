@@ -8,14 +8,17 @@ export default function PostPage() {
     const [postInfo, setPostInfo] = useState(null); 
     const {userInfo} = useContext(UserContext); 
     const {id} = useParams(); 
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
-        fetch(`http://localhost:4000/post/${id}`)
-        .then(response => {
-            response.json().then(postInfo => {
-                setPostInfo(postInfo); 
-            }); 
-        }); 
-    }, []); 
+    fetch(`http://localhost:4000/post/${id}`)
+        .then(response => response.json())
+        .then(postInfo => {
+            setPostInfo(postInfo);
+            setLoading(false);
+        });
+}, []);
+if (loading) return <p>Loading post...</p>;
+
     if (!postInfo) return 'Nothing'; 
     return (
         <div className="post-page">

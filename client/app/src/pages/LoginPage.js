@@ -20,7 +20,7 @@ export default function LoginPage() {
             setRedirect(true);
         });
       } else {
-        alert('wrong credentials');
+        alert('Username/Password Incorrect. Try again!');
       }
     }
 
