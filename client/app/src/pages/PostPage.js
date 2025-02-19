@@ -1,6 +1,6 @@
 import { formatISO9075 } from "date-fns";
 import {useContext, useEffect, useState} from "react"; 
-import {useParams} from "react-router-dom"; 
+import {useParams, Navigate} from "react-router-dom"; 
 import {UserContext} from "../UserContext"; 
 import {Link} from 'react-router-dom';
 
@@ -8,6 +8,7 @@ export default function PostPage() {
     const [postInfo, setPostInfo] = useState(null); 
     const {userInfo} = useContext(UserContext); 
     const {id} = useParams(); 
+    const [redirect, setRedirect] = useState(false); 
     const [loading, setLoading] = useState(true);
     useEffect(() => {
     fetch(`http://localhost:4000/post/${id}`)
@@ -17,6 +18,23 @@ export default function PostPage() {
             setLoading(false);
         });
 }, []);
+async function deletePost() {
+    const confirm_d = window.confirm('Are you sure you want to delete this post? It cannot be recovered'); 
+    if (!confirm_d) return; 
+    const response = await fetch(`http://localhost:4000/post/${id}`, {
+        method: 'DELETE',
+        credentials: 'include',
+    });
+    if (response.ok) {
+        setRedirect(true); 
+    } else {
+        alert('Post was not deleted. Try again'); 
+    }
+    }
+    if (redirect) {
+        return <Navigate to="/" />; 
+    }
+
 if (loading) return <p>Loading post...</p>;
 
     if (!postInfo) return 'Nothing'; 
@@ -33,6 +51,9 @@ if (loading) return <p>Loading post...</p>;
             </svg>
             Edit your Post 
             </Link>
+            <button onClick={deletePost} style={{ marginLeft: '10px', marginTop: '20px', color: 'black', backgroundColor: 'yellow', padding: '5px 26px', border: 'none', cursor: 'pointer' }}>
+                        Delete Post
+                    </button>
             </div>
             )}
             <div className="image">

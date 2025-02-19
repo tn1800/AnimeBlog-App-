@@ -13,7 +13,7 @@ export default function RegisterPage() {
     if (response.status === 200) {
       alert('Your account has been created successfully!');
     } else {
-      alert('Username has been taken! Try again!');
+      alert('Username has been taken. Try again!');
     }
   }
   return (
