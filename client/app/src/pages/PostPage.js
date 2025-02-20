@@ -10,6 +10,8 @@ export default function PostPage() {
     const {id} = useParams(); 
     const [redirect, setRedirect] = useState(false); 
     const [loading, setLoading] = useState(true);
+    
+
     useEffect(() => {
     fetch(`http://localhost:4000/post/${id}`)
         .then(response => response.json())
@@ -18,6 +20,18 @@ export default function PostPage() {
             setLoading(false);
         });
 }, []);
+function likePost() {
+    fetch(`http://localhost:4000/post/${id}/like`, { 
+        method: "POST", 
+        credentials: "include" 
+    })
+    .then(response => response.json())
+    .then(data => {
+        setPostInfo(prev => ({ ...prev, likes: data.likes }));
+    });
+}
+
+
 async function deletePost() {
     const confirm_d = window.confirm('Are you sure you want to delete this post? It cannot be recovered'); 
     if (!confirm_d) return; 
@@ -43,6 +57,13 @@ if (loading) return <p>Loading post...</p>;
             <h1> {postInfo.title} </h1>
             <time> {formatISO9075(new Date(postInfo.createdAt))} </time>
             <div className="author"> Post by: {postInfo.author.username} </div>
+            <div className="post-actions">
+
+    <button onClick={likePost} style={{ marginRight: "10px", marginBottom: "15px", cursor: "pointer" }}>
+        👍 {postInfo.likes || 0}
+    </button>
+</div>
+
             {userInfo.id === postInfo.author._id && (
                 <div className="edit-row">
                     <Link className="edit-btn" to={`/edit/${postInfo._id}`}>

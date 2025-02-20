@@ -162,6 +162,13 @@ app.get('/post/:id', async (req, res) => {
   const postDoc = await Post.findById(id).populate('author', ['username']);
   res.json(postDoc);
 })
+//like post feature 
+app.post("/post/:id/like", async (req, res) => {
+  const post = await Post.findById(req.params.id);
+  post.likes += 1;
+  await post.save();
+  res.json(post);
+});
 
 app.listen(4000);
 ///mongodb+srv://tristanengo:Binjax12!@cluster0.t2mtq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0

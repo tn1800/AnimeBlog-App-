@@ -6,8 +6,11 @@ const PostSchema = new Schema({
   summary:String,
   content:String,
   cover:String,
+  likes: {type: Number, default: 0},
+  //dislikes: {type: Number, default: 0},
   author:{type:Schema.Types.ObjectId, ref:'User'},
-}, {
+},
+ {
   timestamps: true,
 });
 
