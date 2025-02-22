@@ -33,7 +33,7 @@ Thanks for checking out the AnimeBlog app. In this app, users can create their o
 The project was initialized with:
 - `yarn create-react app`, *Create React App*, <https://github.com/facebook/create-react-app>
 
-Adaptated from:
+Adapted from:
 - *The Complete Guide to React User Authentication with Auth0, https://auth0.com/blog/complete-guide-to-react-user-authentication/#Add-User-Authentication
 - *Create a React app served by Express.js & Node.js, https://leejjon.medium.com/create-a-react-app-served-by-express-js-node-js-and-add-typescript-33705be3ceda
 - *How to connect MongoDB with ReactJS?, https://www.geeksforgeeks.org/how-to-connect-mongodb-with-reactjs/
