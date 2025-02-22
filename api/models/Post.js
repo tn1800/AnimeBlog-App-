@@ -7,6 +7,7 @@ const PostSchema = new Schema({
   content:String,
   cover:String,
   likes: {type: Number, default: 0},
+  //likedBy: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
   //dislikes: {type: Number, default: 0},
   author:{type:Schema.Types.ObjectId, ref:'User'},
 },

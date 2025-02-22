@@ -10,17 +10,28 @@ export default function PostPage() {
     const {id} = useParams(); 
     const [redirect, setRedirect] = useState(false); 
     const [loading, setLoading] = useState(true);
-    
-
+    const [redirectToLogin, setRedirectToLogin] = useState(false);
+    //if user is not logged and tries to view a post, redirect them to the loginpage. 
     useEffect(() => {
-    fetch(`http://localhost:4000/post/${id}`)
-        .then(response => response.json())
-        .then(postInfo => {
-            setPostInfo(postInfo);
-            setLoading(false);
-        });
-}, []);
-function likePost() {
+        if (!userInfo) {
+            setRedirectToLogin(true); 
+            return;
+        }
+        fetch(`http://localhost:4000/post/${id}`)
+            .then(response => response.json())
+            .then(postInfo => {
+                setPostInfo(postInfo);
+                setLoading(false);
+            });
+    }, [id, userInfo]);
+    if (redirectToLogin) {
+        return <Navigate to="/login" />;
+    }
+
+    if (loading) return <p>Loading post...</p>;
+    if (!postInfo) return 'Nothing';
+
+    function likePost() {
     fetch(`http://localhost:4000/post/${id}/like`, { 
         method: "POST", 
         credentials: "include" 
