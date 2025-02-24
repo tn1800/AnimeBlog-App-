@@ -4,12 +4,26 @@ import {useState} from "react";
 import {Navigate} from "react-router-dom";
 import Editor from "../Editor"; 
 
+
+
+
+
 export default function CreatePost() {
     const [title,setTitle] = useState(''); 
     const [summary,setSummary] = useState(''); 
     const [content, setContent] = useState('');
     const [files, setFiles] = useState('');
     const [redirect, setRedirect] = useState(false);
+
+    function FileChange(ev) {
+      const file = ev.target.files[0]; 
+      if (file && !file.type.startsWith('image/')) {
+        alert('Not an image. Try again'); 
+        return; 
+      }
+      setFiles(ev.target.files); 
+    }
+
     async function createNewPost(ev) {
         const data = new FormData();
         data.set('title', title);
