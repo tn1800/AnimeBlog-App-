@@ -1,4 +1,5 @@
 import { formatISO9075 } from "date-fns";
+import { format } from 'date-fns';
 import {useContext, useEffect, useState} from "react"; 
 import {useParams, Navigate} from "react-router-dom"; 
 import {UserContext} from "../UserContext"; 
@@ -66,7 +67,7 @@ if (loading) return <p>Loading post...</p>;
     return (
         <div className="post-page">
             <h1> {postInfo.title} </h1>
-            <time> {formatISO9075(new Date(postInfo.createdAt))} </time>
+            <time> {format(new Date(postInfo.createdAt), 'MMMM dd, yyyy h:mm a')} </time>
             <div className="author"> Post by: {postInfo.author.username} </div>
             <div className="post-actions">
 
