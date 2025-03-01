@@ -14,9 +14,9 @@ Thanks for checking out the AnimeBlog app. In this app, users can create their o
 4. Install yarn using 'npm intall -g yarn' or download the installer from Yarn's official site: 'https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable'.
 5. In a separate terminal, navigate to the project's api directory using 'cd api' once in the root terminal.
 6. Check to see if node is installed, if not install by downloading the latest version through 'https://nodejs.org/'. 
-7. Then, run 'node index.js' which will start the web server using express.
+7. Verify that npx was installed along with node by using the command npx --version. 
 8. Afterwards, navigate back to the app directory, using 'cd client' and then 'cd app' in the root directory. 
-9. Once step 8 is complete, you can launch the app by running 'yarn start'. 
+9. Once step 8 is complete, you can launch the app by running 'yarn start'. If prompted to download npx, press Y for yes to download it. 
 
 ### Linux/MacOS
 1. Clone the repository by running 'git clone https://github.com/tn1800/AnimeBlog-App-.git' in a terminal window.
