@@ -11,9 +11,11 @@ export default function IndexPage() {
     }, []);
     return (
         <>
-        {posts.length > 0 && posts.map(post => (
-        <Post {...post} />
-      ))}
+        {posts.length > 0 ? posts.map(post => (
+                <Post key={post._id} {...post} />
+            )) : (
+                <p>No posts have been created yet. Be the first to add one!</p>
+            )}
         </>
     );
 }
