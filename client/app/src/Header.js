@@ -16,7 +16,12 @@ export default function Header() {
         .catch(err => console.error("Error fetching user info:", err));
 }, []);
  
- 
+function confirmLogout() {
+  const confirmLogout = window.confirm("Do you want to log out? Click confirm.");
+  if (confirmLogout) {
+    logout();
+  }
+}
   function logout() {
     fetch('http://localhost:4000/logout', {
       credentials: 'include',
@@ -33,7 +38,7 @@ export default function Header() {
           <> 
           <span> Welcome, ({username}) </span>
             <Link to="/create">Create new post</Link>
-            <a onClick={logout}>Logout </a>
+            <a onClick={confirmLogout}>Logout </a>
           </>
         )}
         {!username && (
