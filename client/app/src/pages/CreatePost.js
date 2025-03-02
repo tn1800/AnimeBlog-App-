@@ -53,10 +53,13 @@ export default function CreatePost() {
                 onChange={ev => setTitle(ev.target.value.slice(0, 100))}
             />
             <p>{100 - title.length} characters remaining</p>
-        <input type="summary" 
-        placeholder={'Summary'}
-        value={summary} 
-        onChange={ev => setSummary(ev.target.value)} />
+            <input 
+    type="text" 
+    placeholder="Summary"
+    value={summary}
+    onChange={ev => setSummary(ev.target.value.slice(0, 300))}
+/>
+<p>{300 - summary.length} characters remaining</p>
         <input type="file" onChange={ev => setFiles(ev.target.files)} />
         <Editor value={content} onChange={setContent} />
         <button style = {{marginTop: '5px'}}> Create post </button>
