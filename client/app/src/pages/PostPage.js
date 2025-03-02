@@ -90,8 +90,10 @@ if (loading) return <p>Loading post...</p>;
             </div>
             )}
             <div className="image">
+     <a href={`http://localhost:4000/${postInfo.cover}`} target="_blank" rel="noopener noreferrer">
             <img src={`http://localhost:4000/${postInfo.cover}`} alt=""/>
-             </div>
+    </a>
+    </div>
              <div className="content" dangerouslySetInnerHTML={{__html:postInfo.content}} />
              </div>
     ); 
