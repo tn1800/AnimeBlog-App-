@@ -46,10 +46,13 @@ export default function CreatePost() {
       }
     return (
        <form onSubmit={createNewPost} >
-        <input type="title" 
-        placeholder={'Title'}
-        value={title}
-         onChange={ev => setTitle(ev.target.value)} />
+        <input 
+                type="text" 
+                placeholder="Title"
+                value={title}
+                onChange={ev => setTitle(ev.target.value.slice(0, 100))}
+            />
+            <p>{100 - title.length} characters remaining</p>
         <input type="summary" 
         placeholder={'Summary'}
         value={summary} 
