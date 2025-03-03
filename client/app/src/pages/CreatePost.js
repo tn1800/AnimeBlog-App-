@@ -14,7 +14,7 @@ export default function CreatePost() {
     const [content, setContent] = useState('');
     const [files, setFiles] = useState('');
     const [redirect, setRedirect] = useState(false);
-
+    const [error, setError] = useState(''); 
     function FileChange(ev) {
       const file = ev.target.files[0]; 
       if (file && !file.type.startsWith('image/')) {
@@ -62,7 +62,10 @@ export default function CreatePost() {
 <p>{300 - summary.length} characters remaining</p>
         <input type="file" onChange={ev => setFiles(ev.target.files)} />
         <Editor value={content} onChange={setContent} />
-        <button style = {{marginTop: '5px'}}> Create post </button>
+        <button style={{ marginTop: '5px' }} disabled={!title || !summary || !content}>
+    Create post
+</button>
+
        </form>
     ); 
 }
