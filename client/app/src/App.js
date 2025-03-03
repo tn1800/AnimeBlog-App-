@@ -3,6 +3,7 @@ import Post from "./Post";
 import Header from "./Header";
 import {Route, Routes} from "react-router-dom";
 import Layout from "./Layout";
+import {useState} from "react";
 import IndexPage from "./pages/IndexPage"; 
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
@@ -10,8 +11,17 @@ import CreatePost from './pages/CreatePost';
 import PostPage from './pages/PostPage'; 
 import EditPost from "./pages/EditPost"; 
 import { UserContextProvider } from "./UserContext";
+
+
 function App() {
+  const [darkMode, setDarkMode] = useState(false); 
+
+  function toggleDarkMode() {
+    setDarkMode(prev => !prev); 
+  }
   return (
+    <div className={darkMode ? "dark-mode" : ""}>
+      <button onClick={toggleDarkMode}>Dark Mode</button>
     <UserContextProvider> 
     <Routes> 
       <Route path="/" element={<Layout />} > 
@@ -23,7 +33,9 @@ function App() {
      <Route path="/edit/:id" element={<EditPost />} />
    </Route>
     </Routes>
+    
     </UserContextProvider>
+    </div>
   ); 
 }
 
