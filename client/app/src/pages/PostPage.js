@@ -91,7 +91,8 @@ if (loading) return <p>Loading post...</p>;
             )}
             <div className="image">
      <a href={`http://localhost:4000/${postInfo.cover}`} target="_blank" rel="noopener noreferrer">
-            <img src={`http://localhost:4000/${postInfo.cover}`} alt=""/>
+     <img src={postInfo.cover ? `http://localhost:4000/${postInfo.cover}` : "/logo192.png"} alt=""/>
+
     </a>
     </div>
              <div className="content" dangerouslySetInnerHTML={{__html:postInfo.content}} />
