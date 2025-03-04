@@ -19,6 +19,26 @@ img{
   color: #ffffff; 
 }
 
+.dark-mode-toggle {
+  position: fixed;  
+  top: 10px;        
+  right: 10px;      
+  z-index: 1000;    
+}
+
+.dark-mode-toggle button {
+  background-color: #222;
+  color: #fff;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 50%; 
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.dark-mode-toggle button:hover {
+  background-color: #444;
+}
 
 main{
   padding: 10px;
