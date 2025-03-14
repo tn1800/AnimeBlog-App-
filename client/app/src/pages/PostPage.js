@@ -70,7 +70,7 @@ if (loading) return <p>Loading post...</p>;
             <time> {format(new Date(postInfo.createdAt), 'MMMM dd, yyyy h:mm a')} </time>
             <div className="author"> Post by: {postInfo.author.username} </div>
             <div className="post-actions">
-
+            <p> Views: {postInfo.views || 0}</p>
     <button onClick={likePost} style={{ marginRight: "10px", marginBottom: "15px", cursor: "pointer" }}>
         👍 {postInfo.likes || 0}
     </button>

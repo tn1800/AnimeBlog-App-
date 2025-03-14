@@ -170,5 +170,13 @@ app.post("/post/:id/like", async (req, res) => {
   res.json(post);
 });
 
+app.get('/post/:id', async (req, res) => {
+  const postDoc = await Post.findById(req.params.id);
+  postDoc.views += 1; // Increment view count
+  await postDoc.save();
+  res.json(postDoc);
+});
+
+
 app.listen(4000);
 ///mongodb+srv://tristanengo:Binjax12!@cluster0.t2mtq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
